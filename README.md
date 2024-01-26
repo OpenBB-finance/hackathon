@@ -2,6 +2,15 @@
 
 This guide is intended to provide some starting points for querying data from the OpenBB API. Please refer to the API documentation page [here](https://mindsdb2024.openbb.dev/docs) for more detail.
 
+Some of the uses for the available data are:
+
+- Training a model
+- Testing a hypothesis
+- Building trading strategies
+- Market and macroeconomic forecasting
+- Due diligence of individual companies
+- Interactive dashboards and reports
+
 ## API Authorization
 
 The API requires encoding the username and password as a Base64 string, added to the headers in every request.  Adjust the Python syntax below for your specific system.
@@ -27,7 +36,7 @@ response = requests.get(url=url, headers=headers)
 response.json()
 ```
 
-### Curl Request
+## Curl Request
 
 ```console
 ! curl -X 'GET' \
@@ -48,7 +57,7 @@ response.json()
 
 - Data sources (`provider`) are entered as a choice of: ["benzinga", "intrinio", "fmp", "fred", "sec"] to the `provider` parameter of any endpoint.
 
-- Functions with only one choice do not need to be defined as a `provider` parameter.
+- Parameters with only one choice do not need to be defined.
 
 - Supply lists of symbols as a string - `symbols = "AAPL,MSFT,NFLX,GOOG,AMZN"` - but not every function is equipped for multi-ticker requests.
 
@@ -88,3 +97,4 @@ response.json()
   - Units of measurement, for scaling each series, are returned under the "warnings" attribute of the response object.
 
 - Options Chains: "https://mindsdb2024.openbb.dev/api/v1/derivatives/options/chains?provider=intrinio&symbol={symbol}"
+
