@@ -16,13 +16,13 @@ Some of the uses for the available data are:
 The API requires encoding the username and password as a Base64 string, added to the headers in every request.  Adjust the Python syntax below for your specific system.
 
 User: openbb
-Password: bcn2024finance
+Password: password_you_received_from_the_organizer
 
 ```python
 import base64
 import requests
 
-msg = "openbb:bcn2024finance"
+msg = "openbb:password_you_received_from_the_organizer"
 msg_bytes = msg.encode("ascii")
 base64_bytes = base64.b64encode(msg_bytes)
 base64_msg = base64_bytes.decode("ascii")
@@ -36,7 +36,7 @@ response = requests.get(url=url, headers=headers)
 response.json()
 ```
 
-## Curl Request
+## Example Curl Request
 
 ```console
 ! curl -X 'GET' \
